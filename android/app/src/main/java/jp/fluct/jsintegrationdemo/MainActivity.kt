@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        webView.loadUrl("https://arimura.github.io/test-ad-page/android-js.html")
+        webView.loadUrl("https://voyagegroup.github.io/FluctSDK-Hosting/js-sample/android.html")
     }
-
-
 }
