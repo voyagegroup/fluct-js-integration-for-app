@@ -1,7 +1,9 @@
 package jp.fluct.jsintegrationdemo
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +45,14 @@ class MainActivity : AppCompatActivity() {
                             "});"
                     webView.evaluateJavascript(js, null)
                 }
+            }
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                startActivity(Intent(Intent.ACTION_VIEW, request?.url))
+                return true
             }
         }
         webView.loadUrl("https://voyagegroup.github.io/FluctSDK-Hosting/js-sample/android.html")
