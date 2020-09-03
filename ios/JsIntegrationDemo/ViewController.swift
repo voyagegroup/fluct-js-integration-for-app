@@ -11,6 +11,8 @@ import AdSupport
 
 class ViewController: UIViewController {
     
+    private let APP_IN_VIEW_DOMAIN = "voyagegroup.github.io"
+    
     @IBOutlet private weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
@@ -44,6 +46,21 @@ extension ViewController: WKNavigationDelegate {
         """
         
         webView.evaluateJavaScript(js, completionHandler: nil)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        // リンククリックによるリクエストか判定
+        let isLinkClick = navigationAction.navigationType == .linkActivated
+        
+        // 外部Safariではなく、アプリ内で遷移させたいURLか判定
+        let isAppInViewDomain = navigationAction.request.url?.host == APP_IN_VIEW_DOMAIN
+        
+        if isLinkClick && !isAppInViewDomain, let url = navigationAction.request.url {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            decisionHandler(.cancel)
+            return
+        }
+        decisionHandler(.allow)
     }
 }
 
