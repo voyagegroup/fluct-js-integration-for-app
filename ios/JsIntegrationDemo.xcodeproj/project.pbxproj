@@ -13,6 +13,7 @@
 		867EBAA825008A7900987473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 867EBAA625008A7900987473 /* Main.storyboard */; };
 		867EBAAA25008A7B00987473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 867EBAA925008A7B00987473 /* Assets.xcassets */; };
 		867EBAAD25008A7B00987473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 867EBAAB25008A7B00987473 /* LaunchScreen.storyboard */; };
+		867EBAB625008D8D00987473 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867EBAB525008D8D00987473 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		867EBAA925008A7B00987473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		867EBAAC25008A7B00987473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		867EBAAE25008A7B00987473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		867EBAB525008D8D00987473 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867EBAB625008D8D00987473 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 			children = (
 				867EBA9F25008A7900987473 /* JsIntegrationDemo */,
 				867EBA9E25008A7900987473 /* Products */,
+				867EBAB425008D8D00987473 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +69,14 @@
 				867EBAAE25008A7B00987473 /* Info.plist */,
 			);
 			path = JsIntegrationDemo;
+			sourceTree = "<group>";
+		};
+		867EBAB425008D8D00987473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				867EBAB525008D8D00987473 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
