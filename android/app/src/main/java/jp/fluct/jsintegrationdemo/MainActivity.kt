@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity() {
                 view: WebView?,
                 request: WebResourceRequest?
             ): Boolean {
+                if (request?.url?.host.equals("voyagegroup.github.io")) {
+                    //サイト内の遷移
+                    return false;
+                }
                 startActivity(Intent(Intent.ACTION_VIEW, request?.url))
                 return true
             }
