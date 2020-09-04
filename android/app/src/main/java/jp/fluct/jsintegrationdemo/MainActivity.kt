@@ -36,13 +36,16 @@ class MainActivity : AppCompatActivity() {
                     val unitId = "1000214357"
                     val bundle = BuildConfig.APPLICATION_ID
 
-                    val js = "var fluctAdScript = fluctAdScript || {};" +
-                            "fluctAdScript.cmd = fluctAdScript.cmd || [];" +
-                            "fluctAdScript.cmd.push(function (cmd) {" +
-                            "cmd.setConfig({dlvParams: {\"ifa\":\"${adinfo.id}\",\"lmt\":${adinfo.isLimitAdTrackingEnabled},\"bundle\":\"${bundle}\"}});" +
-                            "cmd.loadByGroup(\"${groupId}\");" +
-                            "cmd.display(\".fluct-unit-${unitId}\", \"${unitId}\");" +
-                            "});"
+                    val js =
+                        """
+                        var fluctAdScript = fluctAdScript || {};
+                        fluctAdScript.cmd = fluctAdScript.cmd || [];
+                        fluctAdScript.cmd.push(function (cmd) {
+                          cmd.setConfig({dlvParams: {"ifa":"${adinfo.id}","lmt":${adinfo.isLimitAdTrackingEnabled},"bundle":"$bundle"}});
+                          cmd.loadByGroup("$groupId");
+                          cmd.display(".fluct-unit-$unitId", "$unitId");
+                        });
+                        """
                     webView.evaluateJavascript(js, null)
                 }
             }
